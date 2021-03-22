@@ -19,7 +19,7 @@ def flatten_vulnerabilities(vulns):
 
 
 def process_found_issue(issue, negatives, positives):
-    category = vulnerability_mapping[issue['title'].strip()]
+    category = vulnerability_mapping[issue['swc-id'].strip()]
     found_issue = category, issue['lineno']
 
     filename = issue['filename'].lstrip('/')
