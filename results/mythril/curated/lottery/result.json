@@ -1,24 +1,12 @@
 {
   "contract": "lottery",
   "tool": "mythril",
-  "start": 1565777130.5294533,
-  "end": 1565777139.503911,
-  "duration": 8.974457740783691,
+  "start": 1615828279.2121162,
+  "end": 1615828281.9007595,
+  "duration": 2.688643217086792,
   "analysis": {
-    "error": null,
-    "issues": [
-      {
-        "address": 232,
-        "code": "/blog.positive.com",
-        "debug": "storage_1: 0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff\ncalldata_Lottery_0: 0x561e91a100000000000000000000000000000000000000000000000000000000\ncalldatasize_Lottery: 0x4\ncallvalue: 0x0\n",
-        "description": "A possible integer overflow exists in the function `makeBet()`.\nThe addition or multiplication may result in a value higher than the maximum representable integer.",
-        "filename": "/dataset/bad_randomness/lottery.sol",
-        "function": "makeBet()",
-        "lineno": 2,
-        "title": "Integer Overflow ",
-        "type": "Warning"
-      }
-    ],
-    "success": true
+    "success": false,
+    "error": "Traceback (most recent call last):\n  File \"/usr/local/lib/python3.8/dist-packages/mythril-0.22.17-py3.8.egg/mythril/interfaces/cli.py\", line 836, in parse_args_and_execute\n    disassembler = MythrilDisassembler(\n  File \"/usr/local/lib/python3.8/dist-packages/mythril-0.22.17-py3.8.egg/mythril/mythril/mythril_disassembler.py\", line 39, in __init__\n    self.solc_binary = self._init_solc_binary(solc_version)\n  File \"/usr/local/lib/python3.8/dist-packages/mythril-0.22.17-py3.8.egg/mythril/mythril/mythril_disassembler.py\", line 74, in _init_solc_binary\n    solc_binary = util.solc_exists(version)\n  File \"/usr/local/lib/python3.8/dist-packages/mythril-0.22.17-py3.8.egg/mythril/ethereum/util.py\", line 132, in solc_exists\n    solcx.install_solc(\"v\" + version)\n  File \"/usr/local/lib/python3.8/dist-packages/solcx/install.py\", line 425, in install_solc\n    version = _convert_and_validate_version(version)\n  File \"/usr/local/lib/python3.8/dist-packages/solcx/install.py\", line 69, in _convert_and_validate_version\n    raise UnsupportedVersionError(\"py-solc-x does not support solc versions <0.4.11\")\nsolcx.exceptions.UnsupportedVersionError: py-solc-x does not support solc versions <0.4.11\n",
+    "issues": []
   }
 }

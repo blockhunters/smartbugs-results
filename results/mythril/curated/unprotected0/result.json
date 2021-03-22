@@ -1,12 +1,12 @@
 {
   "contract": "unprotected0",
   "tool": "mythril",
-  "start": 1565776936.281486,
-  "end": 1565776998.622677,
-  "duration": 62.3411910533905,
+  "start": 1615829440.297077,
+  "end": 1615829444.618401,
+  "duration": 4.321324110031128,
   "analysis": {
-    "error": null,
-    "issues": [],
-    "success": true
+    "success": false,
+    "error": "Solc experienced a fatal error.\n\nCannot import url (\"/dataset/access_control/unprotected0.sol\"): File outside of allowed directories.",
+    "issues": []
   }
 }

@@ -1,9 +1,9 @@
 {
   "contract": "ERC20",
   "tool": "mythril",
-  "start": 1565777023.036067,
-  "end": 1565777027.130688,
-  "duration": 4.094620943069458,
+  "start": 1615802566.1630385,
+  "end": 1615802809.959899,
+  "duration": 243.79686045646667,
   "analysis": {
     "error": null,
     "issues": [],

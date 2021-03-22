@@ -1,12 +1,12 @@
 {
   "contract": "blackjack",
   "tool": "mythril",
-  "start": 1565777056.403282,
-  "end": 1565777060.924942,
-  "duration": 4.521660089492798,
+  "start": 1615828306.285311,
+  "end": 1615828309.3857703,
+  "duration": 3.100459337234497,
   "analysis": {
-    "error": null,
-    "issues": [],
-    "success": true
+    "success": false,
+    "error": "Traceback (most recent call last):\n  File \"/usr/local/lib/python3.8/dist-packages/mythril-0.22.17-py3.8.egg/mythril/interfaces/cli.py\", line 836, in parse_args_and_execute\n    disassembler = MythrilDisassembler(\n  File \"/usr/local/lib/python3.8/dist-packages/mythril-0.22.17-py3.8.egg/mythril/mythril/mythril_disassembler.py\", line 39, in __init__\n    self.solc_binary = self._init_solc_binary(solc_version)\n  File \"/usr/local/lib/python3.8/dist-packages/mythril-0.22.17-py3.8.egg/mythril/mythril/mythril_disassembler.py\", line 74, in _init_solc_binary\n    solc_binary = util.solc_exists(version)\n  File \"/usr/local/lib/python3.8/dist-packages/mythril-0.22.17-py3.8.egg/mythril/ethereum/util.py\", line 132, in solc_exists\n    solcx.install_solc(\"v\" + version)\n  File \"/usr/local/lib/python3.8/dist-packages/solcx/install.py\", line 425, in install_solc\n    version = _convert_and_validate_version(version)\n  File \"/usr/local/lib/python3.8/dist-packages/solcx/install.py\", line 69, in _convert_and_validate_version\n    raise UnsupportedVersionError(\"py-solc-x does not support solc versions <0.4.11\")\nsolcx.exceptions.UnsupportedVersionError: py-solc-x does not support solc versions <0.4.11\n",
+    "issues": []
   }
 }

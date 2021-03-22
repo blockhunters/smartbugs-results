@@ -1,22 +1,68 @@
 {
   "contract": "overflow_simple_add",
   "tool": "mythril",
-  "start": 1565777145.0047314,
-  "end": 1565777149.363065,
-  "duration": 4.358333587646484,
+  "start": 1615828370.4760454,
+  "end": 1615828376.3198252,
+  "duration": 5.843779802322388,
   "analysis": {
     "error": null,
     "issues": [
       {
         "address": 168,
         "code": "balance += deposit",
-        "debug": "calldata_Overflow_Add_4: 0x57f25cd000000000000000000000000000000000000000000000000000000000\nstorage_0: 0xa8795cd3fffffffffffffffffffffffffffffffffffffffffffffffffffffffe\ncalldata_Overflow_Add_0: 0x1003e2d200000000000000000000000000000000000000000000000000000000\ncalldatasize_Overflow_Add: 0x4\ncallvalue: 0x0\n",
-        "description": "A possible integer overflow exists in the function `add(uint256)`.\nThe addition or multiplication may result in a value higher than the maximum representable integer.",
+        "contract": "Overflow_Add",
+        "description": "The arithmetic operator can overflow.\nIt is possible to cause an integer overflow or underflow in the arithmetic operation. ",
         "filename": "/dataset/arithmetic/overflow_simple_add.sol",
         "function": "add(uint256)",
         "lineno": 14,
-        "title": "Integer Overflow ",
-        "type": "Warning"
+        "max_gas_used": 26119,
+        "min_gas_used": 6024,
+        "severity": "High",
+        "sourceMap": ":18",
+        "swc-id": "101",
+        "title": "Integer Arithmetic Bugs",
+        "tx_sequence": {
+          "initialState": {
+            "accounts": {
+              "0x901d12ebe1b195e5aa8748e62bd7734ae19b51f": {
+                "balance": "0x0",
+                "code": "6080604052600436106049576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680631003e2d214604e578063b69ef8a8146078575b600080fd5b348015605957600080fd5b5060766004803603810190808035906020019092919050505060a0565b005b348015608357600080fd5b50608a60b2565b6040518082815260200191505060405180910390f35b80600080828254019250508190555050565b600054815600a165627a7a7230582098ab6b4e4376bc304f1734579a779f58f4bca9757621ab5237d7fb81c5bd0cc70029",
+                "nonce": 0,
+                "storage": "{}"
+              },
+              "0xaffeaffeaffeaffeaffeaffeaffeaffeaffeaffe": {
+                "balance": "0x20fbffe",
+                "code": "",
+                "nonce": 0,
+                "storage": "{}"
+              },
+              "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef": {
+                "balance": "0x1",
+                "code": "",
+                "nonce": 0,
+                "storage": "{}"
+              }
+            }
+          },
+          "steps": [
+            {
+              "address": "",
+              "calldata": "",
+              "input": "0x6080604052600160005534801561001557600080fd5b5060e4806100246000396000f3006080604052600436106049576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680631003e2d214604e578063b69ef8a8146078575b600080fd5b348015605957600080fd5b5060766004803603810190808035906020019092919050505060a0565b005b348015608357600080fd5b50608a60b2565b6040518082815260200191505060405180910390f35b80600080828254019250508190555050565b600054815600a165627a7a7230582098ab6b4e4376bc304f1734579a779f58f4bca9757621ab5237d7fb81c5bd0cc70029",
+              "name": "unknown",
+              "origin": "0xaffeaffeaffeaffeaffeaffeaffeaffeaffeaffe",
+              "value": "0x0"
+            },
+            {
+              "address": "0x901d12ebe1b195e5aa8748e62bd7734ae19b51f",
+              "calldata": "0x1003e2d2ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+              "input": "0x1003e2d2ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+              "name": "add(uint256)",
+              "origin": "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef",
+              "value": "0x0"
+            }
+          ]
+        }
       }
     ],
     "success": true

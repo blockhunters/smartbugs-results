@@ -1,0 +1,1 @@
+{"success": false, "error": "Solc experienced a fatal error.\n\n/dataset/unchecked_low_level_calls/0x07f7ecb66d788ab01dc93b9b71a88401de7d0f2e.sol:67:16: ParserError: Expected identifier, got 'LParen'\n    constructor(address whaleAddress, uint256 wagerLimit) \r\n               ^\n", "issues": []}

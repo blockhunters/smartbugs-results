@@ -1,0 +1,257 @@
+{
+  "contract": "0xf29ebe930a539a60279ace72c707cba851a57707",
+  "tool": "mythril",
+  "start": 1615807251.1993477,
+  "end": 1615807329.6722872,
+  "duration": 78.47293949127197,
+  "analysis": {
+    "error": null,
+    "issues": [
+      {
+        "address": 240,
+        "code": "ue(msg.value)();\n        owner",
+        "contract": "B",
+        "description": "The return value of a message call is not checked.\nExternal calls return a boolean value. If the callee halts with an exception, 'false' is returned and execution continues in the caller. The caller should check whether an exception happened and react accordingly to avoid unexpected behavior. For example it is often desirable to wrap external calls in require() so the transaction is reverted if the call fails.",
+        "filename": "/dataset/unchecked_low_level_calls/0xf29ebe930a539a60279ace72c707cba851a57707.sol",
+        "function": "go()",
+        "lineno": 16,
+        "max_gas_used": 72021,
+        "min_gas_used": 3224,
+        "severity": "Medium",
+        "sourceMap": "332:30",
+        "swc-id": "104",
+        "title": "Unchecked return value from external call.",
+        "tx_sequence": {
+          "initialState": {
+            "accounts": {
+              "0x901d12ebe1b195e5aa8748e62bd7734ae19b51f": {
+                "balance": "0x0",
+                "code": "60806040526004361061004c576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680630f59f83a1461004e5780638da5cb5b14610058575b005b6100566100af565b005b34801561006457600080fd5b5061006d610177565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b600073c8a60c51967f4022bf9424c337e9c6f0bd220e1c90508073ffffffffffffffffffffffffffffffffffffffff163460405160006040518083038185875af192505050506000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff166108fc3073ffffffffffffffffffffffffffffffffffffffff16319081150290604051600060405180830381858888f19350505050158015610173573d6000803e3d6000fd5b5050565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff16815600a165627a7a7230582051c431cc91c94bd662301630c950cee143e834d4ce2f88591c0feabf8feab6bb0029",
+                "nonce": 0,
+                "storage": "{}"
+              },
+              "0xaffeaffeaffeaffeaffeaffeaffeaffeaffeaffe": {
+                "balance": "0x1",
+                "code": "",
+                "nonce": 0,
+                "storage": "{}"
+              },
+              "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef": {
+                "balance": "0x0",
+                "code": "",
+                "nonce": 0,
+                "storage": "{}"
+              }
+            }
+          },
+          "steps": [
+            {
+              "address": "",
+              "calldata": "",
+              "input": "0x6080604052336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555034801561005057600080fd5b506101c8806100606000396000f30060806040526004361061004c576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680630f59f83a1461004e5780638da5cb5b14610058575b005b6100566100af565b005b34801561006457600080fd5b5061006d610177565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b600073c8a60c51967f4022bf9424c337e9c6f0bd220e1c90508073ffffffffffffffffffffffffffffffffffffffff163460405160006040518083038185875af192505050506000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff166108fc3073ffffffffffffffffffffffffffffffffffffffff16319081150290604051600060405180830381858888f19350505050158015610173573d6000803e3d6000fd5b5050565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff16815600a165627a7a7230582051c431cc91c94bd662301630c950cee143e834d4ce2f88591c0feabf8feab6bb0029",
+              "name": "unknown",
+              "origin": "0xaffeaffeaffeaffeaffeaffeaffeaffeaffeaffe",
+              "value": "0x0"
+            },
+            {
+              "address": "0x901d12ebe1b195e5aa8748e62bd7734ae19b51f",
+              "calldata": "0x0f59f83a",
+              "input": "0x0f59f83a",
+              "name": "go()",
+              "origin": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "value": "0x0"
+            },
+            {
+              "address": "0x901d12ebe1b195e5aa8748e62bd7734ae19b51f",
+              "calldata": "0x0f59f83a",
+              "input": "0x0f59f83a",
+              "name": "go()",
+              "origin": "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef",
+              "value": "0x0"
+            }
+          ]
+        }
+      },
+      {
+        "address": 250,
+        "code": "ddres",
+        "contract": "B",
+        "description": "Read of persistent state following external call\nThe contract account state is accessed after an external call to a fixed address. To prevent reentrancy issues, consider accessing the state only before the call, especially if the callee is untrusted. Alternatively, a reentrancy lock can be used to prevent untrusted callees from re-entering the contract in an intermediate state.",
+        "filename": "/dataset/unchecked_low_level_calls/0xf29ebe930a539a60279ace72c707cba851a57707.sol",
+        "function": "go()",
+        "lineno": 17,
+        "max_gas_used": 72021,
+        "min_gas_used": 3224,
+        "severity": "Low",
+        "sourceMap": "373:5",
+        "swc-id": "107",
+        "title": "State access after external call",
+        "tx_sequence": {
+          "initialState": {
+            "accounts": {
+              "0x901d12ebe1b195e5aa8748e62bd7734ae19b51f": {
+                "balance": "0x0",
+                "code": "60806040526004361061004c576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680630f59f83a1461004e5780638da5cb5b14610058575b005b6100566100af565b005b34801561006457600080fd5b5061006d610177565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b600073c8a60c51967f4022bf9424c337e9c6f0bd220e1c90508073ffffffffffffffffffffffffffffffffffffffff163460405160006040518083038185875af192505050506000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff166108fc3073ffffffffffffffffffffffffffffffffffffffff16319081150290604051600060405180830381858888f19350505050158015610173573d6000803e3d6000fd5b5050565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff16815600a165627a7a7230582051c431cc91c94bd662301630c950cee143e834d4ce2f88591c0feabf8feab6bb0029",
+                "nonce": 0,
+                "storage": "{}"
+              },
+              "0xaffeaffeaffeaffeaffeaffeaffeaffeaffeaffe": {
+                "balance": "0x1",
+                "code": "",
+                "nonce": 0,
+                "storage": "{}"
+              },
+              "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef": {
+                "balance": "0x0",
+                "code": "",
+                "nonce": 0,
+                "storage": "{}"
+              }
+            }
+          },
+          "steps": [
+            {
+              "address": "",
+              "calldata": "",
+              "input": "0x6080604052336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555034801561005057600080fd5b506101c8806100606000396000f30060806040526004361061004c576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680630f59f83a1461004e5780638da5cb5b14610058575b005b6100566100af565b005b34801561006457600080fd5b5061006d610177565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b600073c8a60c51967f4022bf9424c337e9c6f0bd220e1c90508073ffffffffffffffffffffffffffffffffffffffff163460405160006040518083038185875af192505050506000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff166108fc3073ffffffffffffffffffffffffffffffffffffffff16319081150290604051600060405180830381858888f19350505050158015610173573d6000803e3d6000fd5b5050565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff16815600a165627a7a7230582051c431cc91c94bd662301630c950cee143e834d4ce2f88591c0feabf8feab6bb0029",
+              "name": "unknown",
+              "origin": "0xaffeaffeaffeaffeaffeaffeaffeaffeaffeaffe",
+              "value": "0x0"
+            },
+            {
+              "address": "0x901d12ebe1b195e5aa8748e62bd7734ae19b51f",
+              "calldata": "0x0f59f83a",
+              "input": "0x0f59f83a",
+              "name": "go()",
+              "origin": "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef",
+              "value": "0x0"
+            }
+          ]
+        }
+      },
+      {
+        "address": 349,
+        "code": "ddress(this).balance);\n    }\n    \n   ",
+        "contract": "B",
+        "description": "Multiple calls are executed in the same transaction.\nThis call is executed following another call within the same transaction. It is possible that the call never gets executed if a prior call fails permanently. This might be caused intentionally by a malicious callee. If possible, refactor the code such that each transaction only executes one external call or make sure that all callees can be trusted (i.e. they\u2019re part of your own codebase).",
+        "filename": "/dataset/unchecked_low_level_calls/0xf29ebe930a539a60279ace72c707cba851a57707.sol",
+        "function": "go()",
+        "lineno": 17,
+        "max_gas_used": 72021,
+        "min_gas_used": 3224,
+        "severity": "Low",
+        "sourceMap": "373:37",
+        "swc-id": "113",
+        "title": "Multiple Calls in a Single Transaction",
+        "tx_sequence": {
+          "initialState": {
+            "accounts": {
+              "0x901d12ebe1b195e5aa8748e62bd7734ae19b51f": {
+                "balance": "0x0",
+                "code": "60806040526004361061004c576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680630f59f83a1461004e5780638da5cb5b14610058575b005b6100566100af565b005b34801561006457600080fd5b5061006d610177565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b600073c8a60c51967f4022bf9424c337e9c6f0bd220e1c90508073ffffffffffffffffffffffffffffffffffffffff163460405160006040518083038185875af192505050506000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff166108fc3073ffffffffffffffffffffffffffffffffffffffff16319081150290604051600060405180830381858888f19350505050158015610173573d6000803e3d6000fd5b5050565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff16815600a165627a7a7230582051c431cc91c94bd662301630c950cee143e834d4ce2f88591c0feabf8feab6bb0029",
+                "nonce": 0,
+                "storage": "{}"
+              },
+              "0xaffeaffeaffeaffeaffeaffeaffeaffeaffeaffe": {
+                "balance": "0x1",
+                "code": "",
+                "nonce": 0,
+                "storage": "{}"
+              },
+              "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef": {
+                "balance": "0x0",
+                "code": "",
+                "nonce": 0,
+                "storage": "{}"
+              }
+            }
+          },
+          "steps": [
+            {
+              "address": "",
+              "calldata": "",
+              "input": "0x6080604052336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555034801561005057600080fd5b506101c8806100606000396000f30060806040526004361061004c576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680630f59f83a1461004e5780638da5cb5b14610058575b005b6100566100af565b005b34801561006457600080fd5b5061006d610177565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b600073c8a60c51967f4022bf9424c337e9c6f0bd220e1c90508073ffffffffffffffffffffffffffffffffffffffff163460405160006040518083038185875af192505050506000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff166108fc3073ffffffffffffffffffffffffffffffffffffffff16319081150290604051600060405180830381858888f19350505050158015610173573d6000803e3d6000fd5b5050565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff16815600a165627a7a7230582051c431cc91c94bd662301630c950cee143e834d4ce2f88591c0feabf8feab6bb0029",
+              "name": "unknown",
+              "origin": "0xaffeaffeaffeaffeaffeaffeaffeaffeaffeaffe",
+              "value": "0x0"
+            },
+            {
+              "address": "0x901d12ebe1b195e5aa8748e62bd7734ae19b51f",
+              "calldata": "0x0f59f83a",
+              "input": "0x0f59f83a",
+              "name": "go()",
+              "origin": "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef",
+              "value": "0x0"
+            }
+          ]
+        }
+      },
+      {
+        "address": 349,
+        "code": "ddress(this).balance);\n    }\n    \n   ",
+        "contract": "B",
+        "description": "Write to persistent state following external call\nThe contract account state is accessed after an external call to a fixed address. To prevent reentrancy issues, consider accessing the state only before the call, especially if the callee is untrusted. Alternatively, a reentrancy lock can be used to prevent untrusted callees from re-entering the contract in an intermediate state.",
+        "filename": "/dataset/unchecked_low_level_calls/0xf29ebe930a539a60279ace72c707cba851a57707.sol",
+        "function": "go()",
+        "lineno": 17,
+        "max_gas_used": 72021,
+        "min_gas_used": 3224,
+        "severity": "Low",
+        "sourceMap": "373:37",
+        "swc-id": "107",
+        "title": "State access after external call",
+        "tx_sequence": {
+          "initialState": {
+            "accounts": {
+              "0x901d12ebe1b195e5aa8748e62bd7734ae19b51f": {
+                "balance": "0x2",
+                "code": "60806040526004361061004c576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680630f59f83a1461004e5780638da5cb5b14610058575b005b6100566100af565b005b34801561006457600080fd5b5061006d610177565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b600073c8a60c51967f4022bf9424c337e9c6f0bd220e1c90508073ffffffffffffffffffffffffffffffffffffffff163460405160006040518083038185875af192505050506000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff166108fc3073ffffffffffffffffffffffffffffffffffffffff16319081150290604051600060405180830381858888f19350505050158015610173573d6000803e3d6000fd5b5050565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff16815600a165627a7a7230582051c431cc91c94bd662301630c950cee143e834d4ce2f88591c0feabf8feab6bb0029",
+                "nonce": 0,
+                "storage": "{}"
+              },
+              "0xaffeaffeaffeaffeaffeaffeaffeaffeaffeaffe": {
+                "balance": "0x0",
+                "code": "",
+                "nonce": 0,
+                "storage": "{}"
+              },
+              "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef": {
+                "balance": "0x0",
+                "code": "",
+                "nonce": 0,
+                "storage": "{}"
+              }
+            }
+          },
+          "steps": [
+            {
+              "address": "",
+              "calldata": "",
+              "input": "0x6080604052336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555034801561005057600080fd5b506101c8806100606000396000f30060806040526004361061004c576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680630f59f83a1461004e5780638da5cb5b14610058575b005b6100566100af565b005b34801561006457600080fd5b5061006d610177565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b600073c8a60c51967f4022bf9424c337e9c6f0bd220e1c90508073ffffffffffffffffffffffffffffffffffffffff163460405160006040518083038185875af192505050506000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff166108fc3073ffffffffffffffffffffffffffffffffffffffff16319081150290604051600060405180830381858888f19350505050158015610173573d6000803e3d6000fd5b5050565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff16815600a165627a7a7230582051c431cc91c94bd662301630c950cee143e834d4ce2f88591c0feabf8feab6bb0029",
+              "name": "unknown",
+              "origin": "0xaffeaffeaffeaffeaffeaffeaffeaffeaffeaffe",
+              "value": "0x0"
+            },
+            {
+              "address": "0x901d12ebe1b195e5aa8748e62bd7734ae19b51f",
+              "calldata": "0x0f59f83a",
+              "input": "0x0f59f83a",
+              "name": "go()",
+              "origin": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "value": "0x0"
+            },
+            {
+              "address": "0x901d12ebe1b195e5aa8748e62bd7734ae19b51f",
+              "calldata": "0x0f59f83a",
+              "input": "0x0f59f83a",
+              "name": "go()",
+              "origin": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "value": "0x0"
+            }
+          ]
+        }
+      }
+    ],
+    "success": true
+  }
+}

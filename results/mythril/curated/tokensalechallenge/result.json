@@ -1,22 +1,133 @@
 {
   "contract": "tokensalechallenge",
   "tool": "mythril",
-  "start": 1565777147.185284,
-  "end": 1565777163.845068,
-  "duration": 16.659784078598022,
+  "start": 1615828395.8437302,
+  "end": 1615828501.9661486,
+  "duration": 106.12241840362549,
   "analysis": {
     "error": null,
     "issues": [
       {
-        "address": 472,
+        "address": 360,
+        "code": "numTokens * PRICE_PER_TOKEN",
+        "contract": "TokenSaleChallenge",
+        "description": "The arithmetic operator can overflow.\nIt is possible to cause an integer overflow or underflow in the arithmetic operation. ",
+        "filename": "/dataset/arithmetic/tokensalechallenge.sol",
+        "function": "buy(uint256)",
+        "lineno": 23,
+        "max_gas_used": 26432,
+        "min_gas_used": 6147,
+        "severity": "High",
+        "sourceMap": ":27",
+        "swc-id": "101",
+        "title": "Integer Arithmetic Bugs",
+        "tx_sequence": {
+          "initialState": {
+            "accounts": {
+              "0x901d12ebe1b195e5aa8748e62bd7734ae19b51f": {
+                "balance": "0x0",
+                "code": "606060405260043610610062576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806370a0823114610067578063b2fa1c9e146100b4578063d96a094a146100e1578063e4849b32146100f9575b600080fd5b341561007257600080fd5b61009e600480803573ffffffffffffffffffffffffffffffffffffffff1690602001909190505061011c565b6040518082815260200191505060405180910390f35b34156100bf57600080fd5b6100c7610134565b604051808215151515815260200191505060405180910390f35b6100f7600480803590602001909190505061015d565b005b341561010457600080fd5b61011a60048080359060200190919050506101c4565b005b60006020528060005260406000206000915090505481565b6000670de0b6b3a76400003073ffffffffffffffffffffffffffffffffffffffff163110905090565b670de0b6b3a764000081023414151561017557600080fd5b806000803373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000206000828254019250508190555050565b806000803373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020541015151561021157600080fd5b806000803373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600082825403925050819055503373ffffffffffffffffffffffffffffffffffffffff166108fc670de0b6b3a764000083029081150290604051600060405180830381858888f1935050505015156102a757600080fd5b505600a165627a7a7230582017d599e15b2ec827c304ad8e29e0799c4cf3924e0ad76721c88ad07ff49ade520029",
+                "nonce": 0,
+                "storage": "{}"
+              },
+              "0xaffeaffeaffeaffeaffeaffeaffeaffeaffeaffe": {
+                "balance": "0x100000000000bb52",
+                "code": "",
+                "nonce": 0,
+                "storage": "{}"
+              },
+              "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef": {
+                "balance": "0x0",
+                "code": "",
+                "nonce": 0,
+                "storage": "{}"
+              }
+            }
+          },
+          "steps": [
+            {
+              "address": "",
+              "calldata": "",
+              "input": "0x606060405260405160208061031c83398101604052808051906020019091905050670de0b6b3a76400003414151561003657600080fd5b506102d6806100466000396000f300606060405260043610610062576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806370a0823114610067578063b2fa1c9e146100b4578063d96a094a146100e1578063e4849b32146100f9575b600080fd5b341561007257600080fd5b61009e600480803573ffffffffffffffffffffffffffffffffffffffff1690602001909190505061011c565b6040518082815260200191505060405180910390f35b34156100bf57600080fd5b6100c7610134565b604051808215151515815260200191505060405180910390f35b6100f7600480803590602001909190505061015d565b005b341561010457600080fd5b61011a60048080359060200190919050506101c4565b005b60006020528060005260406000206000915090505481565b6000670de0b6b3a76400003073ffffffffffffffffffffffffffffffffffffffff163110905090565b670de0b6b3a764000081023414151561017557600080fd5b806000803373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000206000828254019250508190555050565b806000803373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020541015151561021157600080fd5b806000803373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600082825403925050819055503373ffffffffffffffffffffffffffffffffffffffff166108fc670de0b6b3a764000083029081150290604051600060405180830381858888f1935050505015156102a757600080fd5b505600a165627a7a7230582017d599e15b2ec827c304ad8e29e0799c4cf3924e0ad76721c88ad07ff49ade520029",
+              "name": "unknown",
+              "origin": "0xaffeaffeaffeaffeaffeaffeaffeaffeaffeaffe",
+              "value": "0xde0b6b3a7640000"
+            },
+            {
+              "address": "0x901d12ebe1b195e5aa8748e62bd7734ae19b51f",
+              "calldata": "0xd96a094a10",
+              "input": "0xd96a094a10",
+              "name": "buy(uint256)",
+              "origin": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "value": "0x0"
+            }
+          ]
+        }
+      },
+      {
+        "address": 442,
         "code": "balanceOf[msg.sender] += numTokens",
-        "debug": "storage_keccac_1461501637330902918203684832716283019655932542975_&\n1461501637330902918203684832716283019655932542975_&\ncaller: 0xa8795cd3fffffffffffffffffffffffffffffffffffffffffffffffffffffffe\ncalldata_TokenSaleChallenge_4: 0x57f25cd000000000000000000000000000000000000000000000000000000000\ncalldata_TokenSaleChallenge_0: 0xd96a094a00000000000000000000000000000000000000000000000000000000\ncalldatasize_TokenSaleChallenge: 0x4\ncallvalue: 0xf140000000000000000000000000000000000000000000000000000000000000\n",
-        "description": "A possible integer overflow exists in the function `buy(uint256)`.\nThe addition or multiplication may result in a value higher than the maximum representable integer.",
+        "contract": "TokenSaleChallenge",
+        "description": "The arithmetic operator can overflow.\nIt is possible to cause an integer overflow or underflow in the arithmetic operation. ",
         "filename": "/dataset/arithmetic/tokensalechallenge.sol",
         "function": "buy(uint256)",
         "lineno": 25,
-        "title": "Integer Overflow ",
-        "type": "Warning"
+        "max_gas_used": 26432,
+        "min_gas_used": 6147,
+        "severity": "High",
+        "sourceMap": ":34",
+        "swc-id": "101",
+        "title": "Integer Arithmetic Bugs",
+        "tx_sequence": {
+          "initialState": {
+            "accounts": {
+              "0x901d12ebe1b195e5aa8748e62bd7734ae19b51f": {
+                "balance": "0x0",
+                "code": "606060405260043610610062576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806370a0823114610067578063b2fa1c9e146100b4578063d96a094a146100e1578063e4849b32146100f9575b600080fd5b341561007257600080fd5b61009e600480803573ffffffffffffffffffffffffffffffffffffffff1690602001909190505061011c565b6040518082815260200191505060405180910390f35b34156100bf57600080fd5b6100c7610134565b604051808215151515815260200191505060405180910390f35b6100f7600480803590602001909190505061015d565b005b341561010457600080fd5b61011a60048080359060200190919050506101c4565b005b60006020528060005260406000206000915090505481565b6000670de0b6b3a76400003073ffffffffffffffffffffffffffffffffffffffff163110905090565b670de0b6b3a764000081023414151561017557600080fd5b806000803373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000206000828254019250508190555050565b806000803373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020541015151561021157600080fd5b806000803373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600082825403925050819055503373ffffffffffffffffffffffffffffffffffffffff166108fc670de0b6b3a764000083029081150290604051600060405180830381858888f1935050505015156102a757600080fd5b505600a165627a7a7230582017d599e15b2ec827c304ad8e29e0799c4cf3924e0ad76721c88ad07ff49ade520029",
+                "nonce": 0,
+                "storage": "{}"
+              },
+              "0xaffeaffeaffeaffeaffeaffeaffeaffeaffeaffe": {
+                "balance": "0x405e1000000004181",
+                "code": "",
+                "nonce": 0,
+                "storage": "{}"
+              },
+              "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef": {
+                "balance": "0x4",
+                "code": "",
+                "nonce": 0,
+                "storage": "{}"
+              }
+            }
+          },
+          "steps": [
+            {
+              "address": "",
+              "calldata": "",
+              "input": "0x606060405260405160208061031c83398101604052808051906020019091905050670de0b6b3a76400003414151561003657600080fd5b506102d6806100466000396000f300606060405260043610610062576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806370a0823114610067578063b2fa1c9e146100b4578063d96a094a146100e1578063e4849b32146100f9575b600080fd5b341561007257600080fd5b61009e600480803573ffffffffffffffffffffffffffffffffffffffff1690602001909190505061011c565b6040518082815260200191505060405180910390f35b34156100bf57600080fd5b6100c7610134565b604051808215151515815260200191505060405180910390f35b6100f7600480803590602001909190505061015d565b005b341561010457600080fd5b61011a60048080359060200190919050506101c4565b005b60006020528060005260406000206000915090505481565b6000670de0b6b3a76400003073ffffffffffffffffffffffffffffffffffffffff163110905090565b670de0b6b3a764000081023414151561017557600080fd5b806000803373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000206000828254019250508190555050565b806000803373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020541015151561021157600080fd5b806000803373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600082825403925050819055503373ffffffffffffffffffffffffffffffffffffffff166108fc670de0b6b3a764000083029081150290604051600060405180830381858888f1935050505015156102a757600080fd5b505600a165627a7a7230582017d599e15b2ec827c304ad8e29e0799c4cf3924e0ad76721c88ad07ff49ade520029",
+              "name": "unknown",
+              "origin": "0xaffeaffeaffeaffeaffeaffeaffeaffeaffeaffe",
+              "value": "0xde0b6b3a7640000"
+            },
+            {
+              "address": "0x901d12ebe1b195e5aa8748e62bd7734ae19b51f",
+              "calldata": "0xd96a094a80",
+              "input": "0xd96a094a80",
+              "name": "buy(uint256)",
+              "origin": "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef",
+              "value": "0x0"
+            },
+            {
+              "address": "0x901d12ebe1b195e5aa8748e62bd7734ae19b51f",
+              "calldata": "0xd96a094ac2",
+              "input": "0xd96a094ac2",
+              "name": "buy(uint256)",
+              "origin": "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef",
+              "value": "0x0"
+            }
+          ]
+        }
       }
     ],
     "success": true

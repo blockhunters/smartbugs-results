@@ -1,22 +1,68 @@
 {
   "contract": "integer_overflow_minimal",
   "tool": "mythril",
-  "start": 1565777147.9395912,
-  "end": 1565777151.9334042,
-  "duration": 3.9938130378723145,
+  "start": 1615828357.9310443,
+  "end": 1615828364.4550354,
+  "duration": 6.523991107940674,
   "analysis": {
     "error": null,
     "issues": [
       {
-        "address": 174,
+        "address": 162,
         "code": "count -= input",
-        "debug": "storage_0: 0x0\ncalldata_IntegerOverflowMinimal_4: 0x1\ncalldata_IntegerOverflowMinimal_0: 0xa444f5e900000000000000000000000000000000000000000000000000000000\ncalldatasize_IntegerOverflowMinimal: 0x4\ncallvalue: 0x0\n",
-        "description": "A possible integer underflow exists in the function `run(uint256)`.\nThe subtraction may result in a value < 0.",
+        "contract": "IntegerOverflowMinimal",
+        "description": "The arithmetic operator can underflow.\nIt is possible to cause an integer overflow or underflow in the arithmetic operation. ",
         "filename": "/dataset/arithmetic/integer_overflow_minimal.sol",
         "function": "run(uint256)",
         "lineno": 17,
-        "title": "Integer Underflow",
-        "type": "Warning"
+        "max_gas_used": 26114,
+        "min_gas_used": 6019,
+        "severity": "High",
+        "sourceMap": ":14",
+        "swc-id": "101",
+        "title": "Integer Arithmetic Bugs",
+        "tx_sequence": {
+          "initialState": {
+            "accounts": {
+              "0x901d12ebe1b195e5aa8748e62bd7734ae19b51f": {
+                "balance": "0x0",
+                "code": "6060604052600436106049576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806306661abd14604e578063a444f5e9146074575b600080fd5b3415605857600080fd5b605e6094565b6040518082815260200191505060405180910390f35b3415607e57600080fd5b60926004808035906020019091905050609a565b005b60005481565b806000808282540392505081905550505600a165627a7a72305820ee2e3c82d438c978aeee7672d839df0d1f2cc819a7a3dace6a8ce9e415159dee0029",
+                "nonce": 0,
+                "storage": "{}"
+              },
+              "0xaffeaffeaffeaffeaffeaffeaffeaffeaffeaffe": {
+                "balance": "0x0",
+                "code": "",
+                "nonce": 0,
+                "storage": "{}"
+              },
+              "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef": {
+                "balance": "0x0",
+                "code": "",
+                "nonce": 0,
+                "storage": "{}"
+              }
+            }
+          },
+          "steps": [
+            {
+              "address": "",
+              "calldata": "",
+              "input": "0x60606040526001600055341561001457600080fd5b60d8806100226000396000f3006060604052600436106049576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806306661abd14604e578063a444f5e9146074575b600080fd5b3415605857600080fd5b605e6094565b6040518082815260200191505060405180910390f35b3415607e57600080fd5b60926004808035906020019091905050609a565b005b60005481565b806000808282540392505081905550505600a165627a7a72305820ee2e3c82d438c978aeee7672d839df0d1f2cc819a7a3dace6a8ce9e415159dee0029",
+              "name": "unknown",
+              "origin": "0xaffeaffeaffeaffeaffeaffeaffeaffeaffeaffe",
+              "value": "0x0"
+            },
+            {
+              "address": "0x901d12ebe1b195e5aa8748e62bd7734ae19b51f",
+              "calldata": "0xa444f5e901",
+              "input": "0xa444f5e901",
+              "name": "run(uint256)",
+              "origin": "0xaffeaffeaffeaffeaffeaffeaffeaffeaffeaffe",
+              "value": "0x0"
+            }
+          ]
+        }
       }
     ],
     "success": true

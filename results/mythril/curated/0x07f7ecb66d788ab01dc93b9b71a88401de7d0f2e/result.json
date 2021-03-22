@@ -1,0 +1,12 @@
+{
+  "contract": "0x07f7ecb66d788ab01dc93b9b71a88401de7d0f2e",
+  "tool": "mythril",
+  "start": 1615814879.4859114,
+  "end": 1615814883.9813938,
+  "duration": 4.495482444763184,
+  "analysis": {
+    "success": false,
+    "error": "Solc experienced a fatal error.\n\n/dataset/unchecked_low_level_calls/0x07f7ecb66d788ab01dc93b9b71a88401de7d0f2e.sol:67:16: ParserError: Expected identifier, got 'LParen'\n    constructor(address whaleAddress, uint256 wagerLimit) \r\n               ^\n",
+    "issues": []
+  }
+}

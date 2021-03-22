@@ -1,0 +1,8 @@
+{
+  "contract": "0x96edbe868531bd23a6c05e9d0c424ea64fb1b78b",
+  "tool": "mythril",
+  "start": 1615836157.6384175,
+  "end": 1615837958.2577543,
+  "duration": 1800.6193368434906,
+  "analysis": null
+}

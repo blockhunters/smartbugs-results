@@ -1,12 +1,78 @@
 {
   "contract": "guess_the_random_number",
   "tool": "mythril",
-  "start": 1565777064.1552749,
-  "end": 1565777068.5855212,
-  "duration": 4.430246353149414,
+  "start": 1615828316.380911,
+  "end": 1615828326.3053973,
+  "duration": 9.92448616027832,
   "analysis": {
     "error": null,
-    "issues": [],
+    "issues": [
+      {
+        "address": 259,
+        "code": "msg.sender.transfer(2 ether)",
+        "contract": "GuessTheRandomNumberChallenge",
+        "description": "Any sender can withdraw Ether from the contract account.\nArbitrary senders other than the contract creator can profitably extract Ether from the contract account. Verify the business logic carefully and make sure that appropriate security controls are in place to prevent unexpected loss of funds.",
+        "filename": "/dataset/bad_randomness/guess_the_random_number.sol",
+        "function": "guess(uint8)",
+        "lineno": 26,
+        "max_gas_used": 36462,
+        "min_gas_used": 1851,
+        "severity": "High",
+        "sourceMap": "684:28",
+        "swc-id": "105",
+        "title": "Unprotected Ether Withdrawal",
+        "tx_sequence": {
+          "initialState": {
+            "accounts": {
+              "0x901d12ebe1b195e5aa8748e62bd7734ae19b51f": {
+                "balance": "0x0",
+                "code": "60606040526004361061004c576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680634ba4c16b14610051578063b2fa1c9e1461006c575b600080fd5b61006a600480803560ff16906020019091905050610099565b005b341561007757600080fd5b61007f610117565b604051808215151515815260200191505060405180910390f35b670de0b6b3a7640000341415156100af57600080fd5b6000809054906101000a900460ff1660ff168160ff161415610114573373ffffffffffffffffffffffffffffffffffffffff166108fc671bc16d674ec800009081150290604051600060405180830381858888f19350505050151561011357600080fd5b5b50565b6000803073ffffffffffffffffffffffffffffffffffffffff1631149050905600a165627a7a7230582049d9cd6ab9f8f010e3a40f6a02fdf7ea626b9399302aba22c4e4d969564a1c980029",
+                "nonce": 0,
+                "storage": "{}"
+              },
+              "0xaffeaffeaffeaffeaffeaffeaffeaffeaffeaffe": {
+                "balance": "0x41001096bc0c82000",
+                "code": "",
+                "nonce": 0,
+                "storage": "{}"
+              },
+              "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef": {
+                "balance": "0x40001080448140005",
+                "code": "",
+                "nonce": 0,
+                "storage": "{}"
+              }
+            }
+          },
+          "steps": [
+            {
+              "address": "",
+              "calldata": "",
+              "input": "0x6060604052670de0b6b3a76400003414151561001a57600080fd5b600143034042604051808360001916600019168152602001828152602001925050506040518091039020600190046000806101000a81548160ff021916908360ff160217905550610164806100706000396000f30060606040526004361061004c576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680634ba4c16b14610051578063b2fa1c9e1461006c575b600080fd5b61006a600480803560ff16906020019091905050610099565b005b341561007757600080fd5b61007f610117565b604051808215151515815260200191505060405180910390f35b670de0b6b3a7640000341415156100af57600080fd5b6000809054906101000a900460ff1660ff168160ff161415610114573373ffffffffffffffffffffffffffffffffffffffff166108fc671bc16d674ec800009081150290604051600060405180830381858888f19350505050151561011357600080fd5b5b50565b6000803073ffffffffffffffffffffffffffffffffffffffff1631149050905600a165627a7a7230582049d9cd6ab9f8f010e3a40f6a02fdf7ea626b9399302aba22c4e4d969564a1c980029",
+              "name": "unknown",
+              "origin": "0xaffeaffeaffeaffeaffeaffeaffeaffeaffeaffe",
+              "value": "0xde0b6b3a7640000"
+            },
+            {
+              "address": "0x901d12ebe1b195e5aa8748e62bd7734ae19b51f",
+              "calldata": "0x4ba4c16b",
+              "input": "0x4ba4c16b",
+              "name": "guess(uint8)",
+              "origin": "0xaffeaffeaffeaffeaffeaffeaffeaffeaffeaffe",
+              "value": "0xde0b6b3a7640000"
+            },
+            {
+              "address": "0x901d12ebe1b195e5aa8748e62bd7734ae19b51f",
+              "calldata": "0x4ba4c16b0000000000000000000000000000000000000000000000000000000000000040",
+              "input": "0x4ba4c16b0000000000000000000000000000000000000000000000000000000000000040",
+              "name": "guess(uint8)",
+              "origin": "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef",
+              "value": "0xde0b6b3a7640000"
+            }
+          ]
+        }
+      }
+    ],
     "success": true
   }
 }

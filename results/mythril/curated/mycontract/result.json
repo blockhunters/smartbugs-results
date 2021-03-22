@@ -1,22 +1,68 @@
 {
   "contract": "mycontract",
   "tool": "mythril",
-  "start": 1565776921.3058937,
-  "end": 1565776998.9981477,
-  "duration": 77.69225406646729,
+  "start": 1615829342.080055,
+  "end": 1615829351.9407983,
+  "duration": 9.860743284225464,
   "analysis": {
     "error": null,
     "issues": [
       {
-        "address": 204,
-        "code": "tx.origin",
-        "debug": "",
-        "description": "Function sendTo(address,uint256) retrieves the transaction origin (tx.origin) using the ORIGIN opcode. Use msg.sender instead.\nSee also: https://solidity.readthedocs.io/en/develop/security-considerations.html#tx-origin",
+        "address": 233,
+        "code": "require(tx.origin == owner)",
+        "contract": "MyContract",
+        "description": "Use of tx.origin as a part of authorization control.\nThe tx.origin environment variable has been found to influence a control flow decision. Note that using tx.origin as a security control might cause a situation where a user inadvertently authorizes a smart contract to perform an action on their behalf. It is recommended to use msg.sender instead.",
         "filename": "/dataset/access_control/mycontract.sol",
         "function": "sendTo(address,uint256)",
         "lineno": 20,
-        "title": "Use of tx.origin",
-        "type": "Warning"
+        "max_gas_used": 1503,
+        "min_gas_used": 1078,
+        "severity": "Low",
+        "sourceMap": "454:27",
+        "swc-id": "115",
+        "title": "Dependence on tx.origin",
+        "tx_sequence": {
+          "initialState": {
+            "accounts": {
+              "0x901d12ebe1b195e5aa8748e62bd7734ae19b51f": {
+                "balance": "0x0",
+                "code": "608060405260043610610041576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680639e1a00aa14610046575b600080fd5b34801561005257600080fd5b50610091600480360381019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919080359060200190929190505050610093565b005b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163273ffffffffffffffffffffffffffffffffffffffff161415156100ee57600080fd5b8173ffffffffffffffffffffffffffffffffffffffff166108fc829081150290604051600060405180830381858888f19350505050158015610134573d6000803e3d6000fd5b5050505600a165627a7a72305820089d746b19f36615bb2acdddfd47d06f020af6a01589d3350171708c1fb3ca880029",
+                "nonce": 0,
+                "storage": "{}"
+              },
+              "0xaffeaffeaffeaffeaffeaffeaffeaffeaffeaffe": {
+                "balance": "0x0",
+                "code": "",
+                "nonce": 0,
+                "storage": "{}"
+              },
+              "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef": {
+                "balance": "0x0",
+                "code": "",
+                "nonce": 0,
+                "storage": "{}"
+              }
+            }
+          },
+          "steps": [
+            {
+              "address": "",
+              "calldata": "",
+              "input": "0x608060405234801561001057600080fd5b50336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550610165806100606000396000f300608060405260043610610041576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680639e1a00aa14610046575b600080fd5b34801561005257600080fd5b50610091600480360381019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919080359060200190929190505050610093565b005b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163273ffffffffffffffffffffffffffffffffffffffff161415156100ee57600080fd5b8173ffffffffffffffffffffffffffffffffffffffff166108fc829081150290604051600060405180830381858888f19350505050158015610134573d6000803e3d6000fd5b5050505600a165627a7a72305820089d746b19f36615bb2acdddfd47d06f020af6a01589d3350171708c1fb3ca880029",
+              "name": "unknown",
+              "origin": "0xaffeaffeaffeaffeaffeaffeaffeaffeaffeaffe",
+              "value": "0x0"
+            },
+            {
+              "address": "0x901d12ebe1b195e5aa8748e62bd7734ae19b51f",
+              "calldata": "0x9e1a00aa",
+              "input": "0x9e1a00aa",
+              "name": "sendTo(address,uint256)",
+              "origin": "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef",
+              "value": "0x0"
+            }
+          ]
+        }
       }
     ],
     "success": true

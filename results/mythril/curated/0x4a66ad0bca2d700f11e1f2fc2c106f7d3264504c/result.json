@@ -1,0 +1,12 @@
+{
+  "contract": "0x4a66ad0bca2d700f11e1f2fc2c106f7d3264504c",
+  "tool": "mythril",
+  "start": 1615818581.2320213,
+  "end": 1615818588.3561656,
+  "duration": 7.1241443157196045,
+  "analysis": {
+    "error": null,
+    "issues": [],
+    "success": true
+  }
+}

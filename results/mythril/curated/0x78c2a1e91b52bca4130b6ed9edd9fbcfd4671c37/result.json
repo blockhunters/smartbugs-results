@@ -1,0 +1,12 @@
+{
+  "contract": "0x78c2a1e91b52bca4130b6ed9edd9fbcfd4671c37",
+  "tool": "mythril",
+  "start": 1615818868.5749023,
+  "end": 1615819667.4618535,
+  "duration": 798.8869512081146,
+  "analysis": {
+    "success": false,
+    "error": "Traceback (most recent call last):\n  File \"/usr/local/lib/python3.8/dist-packages/mythril-0.22.17-py3.8.egg/mythril/interfaces/cli.py\", line 844, in parse_args_and_execute\n    execute_command(\n  File \"/usr/local/lib/python3.8/dist-packages/mythril-0.22.17-py3.8.egg/mythril/interfaces/cli.py\", line 753, in execute_command\n    report = analyzer.fire_lasers(\n  File \"/usr/local/lib/python3.8/dist-packages/mythril-0.22.17-py3.8.egg/mythril/mythril/mythril_analyzer.py\", line 180, in fire_lasers\n    issue.add_code_info(contract)\n  File \"/usr/local/lib/python3.8/dist-packages/mythril-0.22.17-py3.8.egg/mythril/analysis/report.py\", line 144, in add_code_info\n    codeinfo = contract.get_source_info(\n  File \"/usr/local/lib/python3.8/dist-packages/mythril-0.22.17-py3.8.egg/mythril/solidity/soliditycontract.py\", line 195, in get_source_info\n    solidity_file = self.solc_indices[mappings[index].solidity_file_idx]\nKeyError: -1\n",
+    "issues": []
+  }
+}

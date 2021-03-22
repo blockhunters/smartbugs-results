@@ -1,0 +1,12 @@
+{
+  "contract": "0x663e4229142a27f00bafb5d087e1e730648314c3",
+  "tool": "mythril",
+  "start": 1615805859.3526945,
+  "end": 1615805865.609539,
+  "duration": 6.256844520568848,
+  "analysis": {
+    "success": false,
+    "error": "Solc experienced a fatal error.\n\nCannot import url (\"/dataset/unchecked_low_level_calls/0x663e4229142a27f00bafb5d087e1e730648314c3.sol\"): File outside of allowed directories.",
+    "issues": []
+  }
+}

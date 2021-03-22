@@ -1,8 +1,12 @@
 {
   "contract": "smart_billions",
   "tool": "mythril",
-  "start": 1565778109.6225007,
-  "end": 1565779912.5515802,
-  "duration": 1802.9290795326233,
-  "analysis": null
+  "start": 1615828301.1731014,
+  "end": 1615828306.2753332,
+  "duration": 5.102231740951538,
+  "analysis": {
+    "success": false,
+    "error": "Solc experienced a fatal error.\n\nCannot import url (\"/dataset/bad_randomness/smart_billions.sol\"): File outside of allowed directories.",
+    "issues": []
+  }
 }

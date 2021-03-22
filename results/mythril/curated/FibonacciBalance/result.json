@@ -1,68 +1,12 @@
 {
   "contract": "FibonacciBalance",
   "tool": "mythril",
-  "start": 1565777138.1558735,
-  "end": 1565777150.4103873,
-  "duration": 12.25451374053955,
+  "start": 1615829351.9514349,
+  "end": 1615829354.7883072,
+  "duration": 2.8368723392486572,
   "analysis": {
-    "error": null,
-    "issues": [
-      {
-        "address": 212,
-        "code": "fibonacciLibrary.delegatecall(msg.data)",
-        "debug": "",
-        "description": "This contract forwards its call data via DELEGATECALL in its fallback function. This means that any function in the called contract can be executed. Note that the callee contract will have access to the storage of the calling contract.\n DELEGATECALL target: Concat(0, Extract(167, 8, storage_0))",
-        "filename": "/dataset/unchecked_low_level_calls/FibonacciBalance.sol",
-        "function": "fallback",
-        "lineno": 38,
-        "title": "Call data forwarded with delegatecall()",
-        "type": "Informational"
-      },
-      {
-        "address": 212,
-        "code": "fibonacciLibrary.delegatecall(msg.data)",
-        "debug": "",
-        "description": "Be aware that the called contract gets unrestricted access to this contract's state.",
-        "filename": "/dataset/unchecked_low_level_calls/FibonacciBalance.sol",
-        "function": "fallback",
-        "lineno": 38,
-        "title": "DELEGATECALL to a user-supplied address",
-        "type": "Informational"
-      },
-      {
-        "address": 520,
-        "code": "withdrawalCounter += 1",
-        "debug": "storage_3: 0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff\ncalldata_FibonacciBalance_0: 0x3ccfd60b00000000000000000000000000000000000000000000000000000000\ncalldatasize_FibonacciBalance: 0x4\ncallvalue: 0x0\n",
-        "description": "A possible integer overflow exists in the function `withdraw()`.\nThe addition or multiplication may result in a value higher than the maximum representable integer.",
-        "filename": "/dataset/unchecked_low_level_calls/FibonacciBalance.sol",
-        "function": "withdraw()",
-        "lineno": 27,
-        "title": "Integer Overflow ",
-        "type": "Warning"
-      },
-      {
-        "address": 740,
-        "code": "fibonacciLibrary.delegatecall(fibSig, withdrawalCounter)",
-        "debug": "",
-        "description": "Multiple sends exist in one transaction, try to isolate each external call into its own transaction. As external calls can fail accidentally or deliberately.\nConsecutive calls: \nCall at address: 815\n",
-        "filename": "/dataset/unchecked_low_level_calls/FibonacciBalance.sol",
-        "function": "withdraw()",
-        "lineno": 31,
-        "title": "Multiple Calls",
-        "type": "Information"
-      },
-      {
-        "address": 815,
-        "code": "msg.sender.transfer(calculatedFibNumber * 1 ether)",
-        "debug": "SOLVER OUTPUT:\nretval_740: 0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff\ncalldata_FibonacciBalance_0: 0x3ccfd60b00000000000000000000000000000000000000000000000000000000\ncalldatasize_FibonacciBalance: 0x4\ncallvalue: 0x0\n",
-        "description": "In the function `withdraw()` a non-zero amount of Ether is sent to msg.sender.\nIt seems that this function can be called without restrictions.",
-        "filename": "/dataset/unchecked_low_level_calls/FibonacciBalance.sol",
-        "function": "withdraw()",
-        "lineno": 32,
-        "title": "Ether send",
-        "type": "Warning"
-      }
-    ],
-    "success": true
+    "success": false,
+    "error": "Traceback (most recent call last):\n  File \"/usr/local/lib/python3.8/dist-packages/mythril-0.22.17-py3.8.egg/mythril/interfaces/cli.py\", line 836, in parse_args_and_execute\n    disassembler = MythrilDisassembler(\n  File \"/usr/local/lib/python3.8/dist-packages/mythril-0.22.17-py3.8.egg/mythril/mythril/mythril_disassembler.py\", line 39, in __init__\n    self.solc_binary = self._init_solc_binary(solc_version)\n  File \"/usr/local/lib/python3.8/dist-packages/mythril-0.22.17-py3.8.egg/mythril/mythril/mythril_disassembler.py\", line 74, in _init_solc_binary\n    solc_binary = util.solc_exists(version)\n  File \"/usr/local/lib/python3.8/dist-packages/mythril-0.22.17-py3.8.egg/mythril/ethereum/util.py\", line 132, in solc_exists\n    solcx.install_solc(\"v\" + version)\n  File \"/usr/local/lib/python3.8/dist-packages/solcx/install.py\", line 425, in install_solc\n    version = _convert_and_validate_version(version)\n  File \"/usr/local/lib/python3.8/dist-packages/solcx/install.py\", line 69, in _convert_and_validate_version\n    raise UnsupportedVersionError(\"py-solc-x does not support solc versions <0.4.11\")\nsolcx.exceptions.UnsupportedVersionError: py-solc-x does not support solc versions <0.4.11\n",
+    "issues": []
   }
 }
