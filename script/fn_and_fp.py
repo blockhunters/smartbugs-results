@@ -7,6 +7,7 @@ from collections import defaultdict
 from pathlib import Path
 from pytablewriter import MarkdownTableWriter
 from vulnerability_mapping import ROOT, vulnerabilities, vulnerability_mapping
+import mythril_out
 
 
 ROOT = Path(ROOT)
@@ -19,11 +20,10 @@ def flatten_vulnerabilities(vulns):
 
 
 def process_found_issue(issue, negatives, positives):
-    category = vulnerability_mapping[issue['swc-id'].strip()]
-    found_issue = category, issue['lineno']
+    found_issue = mythril_out.get_category(issue), mythril_out.get_line_number(issue)
 
-    filename = issue['filename'].lstrip('/')
-    file_vulns = negatives[filename]
+    filename = issue.get('filename', '').lstrip('/')
+    file_vulns = negatives.get(filename, {'vulnerabilities': []})
     if found_issue in file_vulns['vulnerabilities']:
         file_vulns['vulnerabilities'].remove(found_issue)
     else:
@@ -38,7 +38,7 @@ def get_false_negatives_positives():
     for path in curated_results:
         with open(path, "r") as f:
             result = json.load(f)
-        if not result.get('analysis'): continue
+        if not result['analysis']: continue
         for issue in result['analysis']['issues']:
             process_found_issue(issue, negatives, positives)
 

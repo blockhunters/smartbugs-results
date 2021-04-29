@@ -5,6 +5,8 @@ import operator
 import re
 from datetime import timedelta
 
+import mythril_out
+
 tools = ['mythril','slither','osiris','oyente','smartcheck','manticore','maian','securify', 'honeybadger']
 
 output_name = 'curated'
@@ -170,9 +172,8 @@ for tool in tools:
             if tool == 'mythril':
                 analysis = data['analysis']
                 if analysis['issues'] is not None:
-                    for result in analysis['issues']:
-                        vulnerability = result['title'].strip()
-                        add_vul(contract, tool, vulnerability, [result['lineno']])
+                    for vulnerability, lineno in mythril_out.get_issues(analysis):
+                        add_vul(contract, tool, vulnerability, [lineno])
             elif tool == 'oyente' or tool == 'osiris' or tool == 'honeybadger':
                 for analysis in data['analysis']:
                     if analysis['errors'] is not None:

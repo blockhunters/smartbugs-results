@@ -5,6 +5,8 @@ import operator
 import re
 from datetime import timedelta
 
+import mythril_out
+
 tools = ['mythril','slither','oyente','osiris','smartcheck','manticore','maian','securify', 'honeybadger']
 
 ROOT = os.path.realpath(os.path.join(os.path.dirname(__file__), '..'))
@@ -129,9 +131,8 @@ with open(os.path.join(ROOT, 'metadata', 'unique_contracts.csv')) as ufd:
                 if tool == 'mythril':
                     analysis = data['analysis']
                     if analysis['issues'] is not None:
-                        for result in analysis['issues']:
-                            vulnerability = result['title'].strip()
-                            add_vul(contract, tool, vulnerability, result['lineno'])
+                        for category, lineno in mythril_out.get_issues(analysis):
+                            add_vul(contract, tool, category, lineno)
                 elif tool == 'oyente' or tool == 'osiris' or tool == 'honeybadger':
                     for analysis in data['analysis']:
                         if analysis['errors'] is not None:
